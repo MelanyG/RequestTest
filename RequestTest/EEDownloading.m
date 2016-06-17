@@ -129,6 +129,7 @@ self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicat
             post.postTitle = [[_postsArray objectAtIndex:i]valueForKey:@"title"];
             post.postBody = [[_postsArray objectAtIndex:i]valueForKey:@"body"];
             post.postID =@([[[_postsArray objectAtIndex:i]valueForKey:@"id"]integerValue]);
+            post.user = person;
             [person addPostsObject:post];
             
         }
