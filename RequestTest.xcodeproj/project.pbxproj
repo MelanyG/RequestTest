@@ -27,11 +27,10 @@
 		408F5F711D0ECADA0043174A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408F5F701D0ECADA0043174A /* MapKit.framework */; };
 		408F5F751D0ECB8A0043174A /* EELocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F5F741D0ECB8A0043174A /* EELocationVC.m */; };
 		408F5F7F1D0EF6380043174A /* EEImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F5F7E1D0EF6380043174A /* EEImageVC.m */; };
-		75ACEB1FEB0AA367F538EA7C /* libPods-RequestTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F88FC935D9CB9ED087D31C /* libPods-RequestTest.a */; };
+		D988707EEFB5ED4502FF5ABF /* Pods_RequestTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC79F19D30AC588D0C1D7D8 /* Pods_RequestTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		10F88FC935D9CB9ED087D31C /* libPods-RequestTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RequestTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		408F5EF41D0985E70043174A /* RequestTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RequestTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		408F5EF81D0985E70043174A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		408F5EFA1D0985E70043174A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		408F5F741D0ECB8A0043174A /* EELocationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EELocationVC.m; sourceTree = "<group>"; };
 		408F5F7D1D0EF6380043174A /* EEImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEImageVC.h; sourceTree = "<group>"; };
 		408F5F7E1D0EF6380043174A /* EEImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEImageVC.m; sourceTree = "<group>"; };
+		4BC79F19D30AC588D0C1D7D8 /* Pods_RequestTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RequestTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7379872E2A4FC30442E6A5F1 /* Pods-RequestTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RequestTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RequestTest/Pods-RequestTest.release.xcconfig"; sourceTree = "<group>"; };
 		C7CFBB819DAF1B3383DBD94F /* Pods-RequestTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RequestTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RequestTest/Pods-RequestTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				408F5F711D0ECADA0043174A /* MapKit.framework in Frameworks */,
-				75ACEB1FEB0AA367F538EA7C /* libPods-RequestTest.a in Frameworks */,
+				D988707EEFB5ED4502FF5ABF /* Pods_RequestTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				408F5F701D0ECADA0043174A /* MapKit.framework */,
-				10F88FC935D9CB9ED087D31C /* libPods-RequestTest.a */,
+				4BC79F19D30AC588D0C1D7D8 /* Pods_RequestTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
