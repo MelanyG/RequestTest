@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import <MagicalRecord/MagicalRecord.h>
+//#import <MagicalRecord/MagicalRecord.h>
 #import "EEUser.h"
 #import "EEPost.h"
 
 @interface DBManager : NSObject
 
-+ (void)saveContext;
+@property (strong, nonatomic)NSMutableArray *dataBase;
+
++ (id)sharedManager;
 
 @end

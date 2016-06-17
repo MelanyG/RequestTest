@@ -1,24 +1,31 @@
 //
-//  EEPost.h
+//  EEPostN.h
 //  RequestTest
 //
-//  Created by Melany on 6/9/16.
+//  Created by Melany on 6/16/16.
 //  Copyright © 2016 Melany. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import <objc/runtime.h>
 
 @class EEUser;
 
-NS_ASSUME_NONNULL_BEGIN
+@interface EEPost : NSObject
 
-@interface EEPost : NSManagedObject
+@property (nullable, nonatomic, retain) NSNumber *postID;
+@property (nullable, nonatomic, retain) NSString *postTitle;
+@property (nullable, nonatomic, retain) NSString *postBody;
+//@property (nullable, nonatomic, retain) EEUser *user;
 
-// Insert code here to declare functionality of your managed object subclass
+
+//+ (BOOL)resolveInstanceMethod:(SEL)selector;
+
+
+
+
+
+
+
 
 @end
-
-NS_ASSUME_NONNULL_END
-
-#import "EEPost+CoreDataProperties.h"

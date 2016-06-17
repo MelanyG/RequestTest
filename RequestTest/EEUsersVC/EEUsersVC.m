@@ -12,12 +12,13 @@
 #import "EEDownloading.h"
 #import "EELocationVC.h"
 
-@interface EEUsersVC ()
+@interface EEUsersVC ()<UITableViewDelegate, UITableViewDataSource, EEDownloadingDelegate>
 
 @property (strong, nonatomic)NSString *selectedUserName;
 @property (strong, nonatomic)NSNumber *lon;
 @property (strong, nonatomic)NSNumber *lat;
 @property (strong, nonatomic)NSString *city;
+@property (strong, nonatomic)DBManager *manager;
 
 @end
 
@@ -25,12 +26,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"record"]) {
+ //   if(![[NSUserDefaults standardUserDefaults] boolForKey:@"record"]) {
+    // dispatch_async(dispatch_get_main_queue(), ^{
         EEDownloading *lDownloader = [EEDownloading new];
+    lDownloader.delegate = self;
         [lDownloader downloadUserData];
-        [lDownloader downloadUserPosts];
+        //[lDownloader downloadUserPosts];
+  //         });
+        self.manager = [DBManager sharedManager];
+    self.tableView.delegate=nil;
+    self.tableView.dataSource=nil;
         //        [lDownloader downloadusers];
-    }
+ //   }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,12 +64,12 @@
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedResultsController sections] count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+   //id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [self.manager.dataBase count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,8 +84,8 @@
                                   reuseIdentifier:CellIdentifier];
     }
     
-    EEUser *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    [self configureCell:lCell withObject:object withIndexPath:indexPath];
+    //EEUser *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    [self configureCell:lCell withObject:[self.manager.dataBase objectAtIndex:indexPath.row] withIndexPath:indexPath];
     lCell.delegate = self;
     [lCell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return lCell;
@@ -97,6 +104,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedUserName = [(EEUserCell *)[tableView cellForRowAtIndexPath:indexPath] userName].text;
+
     [self performSegueWithIdentifier:@"showPosts" sender: indexPath];
     
     
@@ -110,80 +118,21 @@
     
 }
 
-#pragma mark - Fetched results controller
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
-    _fetchedResultsController = [EEUser MR_fetchAllGroupedBy:nil withPredicate:nil sortedBy:@"userId" ascending:YES];
-    _fetchedResultsController.delegate = self;
-    
-    return _fetchedResultsController;
-}
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        default:
-            return;
-    }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath {
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withObject:anObject withIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
-}
-
 #pragma mark - delegate methods
 
 - (void) cellDelegateMethod:(NSIndexPath *)index {
-    EEUser *user = [[self fetchedResultsController] objectAtIndexPath:index];
-    self.lon = user.latitude;
-    self.lat = user.longitude;
-    self.city = user.userCity;
-                              
+    self.lon = [[self.manager.dataBase objectAtIndex:index.row]longitude];
+    self.lat = [[self.manager.dataBase objectAtIndex:index.row]latitude];
+    self.city = (NSString *)[[self.manager.dataBase objectAtIndex:index.row]userCity];
     [self performSegueWithIdentifier:@"map" sender: index];
 }
 
+
+- (void)downloadingDelegateMethod {
+        self.tableView.delegate=self;
+        self.tableView.dataSource=self;
+    [self.tableView reloadData];
+}
 
 
 @end

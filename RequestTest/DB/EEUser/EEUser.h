@@ -1,24 +1,24 @@
 //
-//  EEUser.h
+//  EEUserN.h
 //  RequestTest
 //
-//  Created by Melany on 6/9/16.
+//  Created by Melany on 6/16/16.
 //  Copyright © 2016 Melany. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import <objc/runtime.h>
 
 @class EEPost;
 
-NS_ASSUME_NONNULL_BEGIN
+@interface EEUser : NSObject
 
-@interface EEUser : NSManagedObject
-
-// Insert code here to declare functionality of your managed object subclass
-
+@property (nullable, nonatomic, retain) NSNumber *latitude;
+@property (nullable, nonatomic, retain) NSNumber *longitude;
+@property (nullable, nonatomic, retain) NSString *realName;
+@property (nullable, nonatomic, retain) NSNumber *userId;
+@property (nullable, nonatomic, retain) NSString *userName;
+@property (nullable, nonatomic, retain) NSString *companyName;
+@property (nullable, nonatomic, retain) NSString *userCity;
+@property (nullable, strong, nonatomic) NSMutableArray *posts;
 @end
-
-NS_ASSUME_NONNULL_END
-
-#import "EEUser+CoreDataProperties.h"

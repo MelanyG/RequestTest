@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.navigationItem.title = self.city;
     self.mapView.delegate = self;
-    [self.mapView setShowsUserLocation:YES];
+    //[self.mapView setShowsUserLocation:YES];
     [self updateMapViewAnnotation];
     // Do any additional setup after loading the view.
 }
@@ -59,7 +59,7 @@
 #pragma mark - MKMapView Delegates
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-static NSString *reuseID = @"EELocationVC";
+    static NSString *reuseID = @"EELocationVC";
     MKAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseID];
     if(!view) {
         view = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:reuseID];
@@ -85,6 +85,7 @@ static NSString *reuseID = @"EELocationVC";
     }
     imageView.image = [UIImage imageNamed:@"star"];
 }
+
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 
     [self performSegueWithIdentifier:@"image" sender:view];

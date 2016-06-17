@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
     //  [self downloadUserData];
     //[self downloadUserPosts];
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"RequestTest"];
+  //  [MagicalRecord setupCoreDataStackWithStoreNamed:@"RequestTest"];
     
     
     return YES;

@@ -11,9 +11,10 @@
 #import "EEUserCell.h"
 
 
-@interface EEUsersVC : UITableViewController <NSFetchedResultsControllerDelegate, EECellDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@interface EEUsersVC : UITableViewController <EECellDelegate>
+
+//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 
 

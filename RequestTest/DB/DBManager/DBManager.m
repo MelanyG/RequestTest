@@ -12,9 +12,19 @@
 
 #pragma mark - Core Data methods
 
-+ (void)saveContext {
-    NSManagedObjectContext *managedObjectContext = [NSManagedObjectContext MR_defaultContext];
-    [managedObjectContext MR_saveToPersistentStoreAndWait];
++ (id)sharedManager {
+    static DBManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [DBManager new];
+        instance.dataBase = [NSMutableArray array];
+        //[MagicalRecord setupCoreDataStackWithStoreNamed:@"EEForm"];
+    });
+    return instance;
 }
+//+ (void)saveContext {
+//    NSManagedObjectContext *managedObjectContext = [NSManagedObjectContext MR_defaultContext];
+//    [managedObjectContext MR_saveToPersistentStoreAndWait];
+//}
 
 @end
