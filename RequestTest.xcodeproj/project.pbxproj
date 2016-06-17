@@ -24,6 +24,7 @@
 		408F5F7F1D0EF6380043174A /* EEImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 408F5F7E1D0EF6380043174A /* EEImageVC.m */; };
 		4091B16A1D13EC0B00E3517D /* EEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4091B1691D13EC0B00E3517D /* EEUser.m */; };
 		4091B16D1D13EC1700E3517D /* EEPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4091B16C1D13EC1700E3517D /* EEPost.m */; };
+		4091B1741D14168900E3517D /* AbstractDynamicClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4091B1731D14168900E3517D /* AbstractDynamicClass.m */; };
 		D988707EEFB5ED4502FF5ABF /* Pods_RequestTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC79F19D30AC588D0C1D7D8 /* Pods_RequestTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		4091B1691D13EC0B00E3517D /* EEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEUser.m; sourceTree = "<group>"; };
 		4091B16B1D13EC1700E3517D /* EEPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPost.h; sourceTree = "<group>"; };
 		4091B16C1D13EC1700E3517D /* EEPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPost.m; sourceTree = "<group>"; };
+		4091B1721D14168900E3517D /* AbstractDynamicClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractDynamicClass.h; sourceTree = "<group>"; };
+		4091B1731D14168900E3517D /* AbstractDynamicClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractDynamicClass.m; sourceTree = "<group>"; };
 		4BC79F19D30AC588D0C1D7D8 /* Pods_RequestTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RequestTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7379872E2A4FC30442E6A5F1 /* Pods-RequestTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RequestTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RequestTest/Pods-RequestTest.release.xcconfig"; sourceTree = "<group>"; };
 		C7CFBB819DAF1B3383DBD94F /* Pods-RequestTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RequestTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RequestTest/Pods-RequestTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		408F5F201D098A8F0043174A /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				4091B1711D14168900E3517D /* AbstractDynamicClass */,
 				408F5F341D0992B00043174A /* EEUser */,
 				408F5F391D0992B00043174A /* EEPost */,
 				408F5F301D0992370043174A /* DBManager */,
@@ -217,6 +221,15 @@
 				408F5F7E1D0EF6380043174A /* EEImageVC.m */,
 			);
 			path = EEImageVC;
+			sourceTree = "<group>";
+		};
+		4091B1711D14168900E3517D /* AbstractDynamicClass */ = {
+			isa = PBXGroup;
+			children = (
+				4091B1721D14168900E3517D /* AbstractDynamicClass.h */,
+				4091B1731D14168900E3517D /* AbstractDynamicClass.m */,
+			);
+			path = AbstractDynamicClass;
 			sourceTree = "<group>";
 		};
 		ADB876BE2B0B533B1A262834 /* Pods */ = {
@@ -360,6 +373,7 @@
 			files = (
 				408F5EFC1D0985E70043174A /* AppDelegate.m in Sources */,
 				408F5F561D0E93B20043174A /* EEDownloading.m in Sources */,
+				4091B1741D14168900E3517D /* AbstractDynamicClass.m in Sources */,
 				408F5F641D0EA99A0043174A /* EEUserCell.m in Sources */,
 				408F5EF91D0985E70043174A /* main.m in Sources */,
 				408F5F331D0992370043174A /* DBManager.m in Sources */,

@@ -8,24 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "AbstractDynamicClass.h"
 
 @class EEUser;
 
-@interface EEPost : NSObject
+@interface EEPost : AbstractDynamicClass
 
 @property (nullable, nonatomic, retain) NSNumber *postID;
 @property (nullable, nonatomic, retain) NSString *postTitle;
 @property (nullable, nonatomic, retain) NSString *postBody;
-//@property (nullable, nonatomic, retain) EEUser *user;
-
-
-//+ (BOOL)resolveInstanceMethod:(SEL)selector;
-
-
-
-
-
-
-
 
 @end

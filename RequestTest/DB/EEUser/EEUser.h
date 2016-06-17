@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "AbstractDynamicClass.h"
 
 @class EEPost;
 
-@interface EEUser : NSObject
+@interface EEUser : AbstractDynamicClass
 
 @property (nullable, nonatomic, retain) NSNumber *latitude;
 @property (nullable, nonatomic, retain) NSNumber *longitude;
